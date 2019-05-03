@@ -1,0 +1,24 @@
+#!/bin/bash
+#test
+#SSH Sweep
+now=$(sshpass -p "bb123#123" ssh -o StrictHostKeyChecking=no bob@localhost echo test)
+ifwork=$?
+echo $ifwork
+
+if [ $ifwork -eq "0" ]
+then
+        echo Up > /var/www/html/web/teams/team0/sshup/10;
+        points=5;
+        current=$(cat /var/www/html/web/teams/team0/points);
+        echo "DMZ VM "$ips" earned "$points" points";
+        expr $current + $points > /var/www/html/web/teams/team0/points
+else
+        echo Down > /var/www/html/web/teams/team0/sshup/10;
+        echo "DMZ VM "$ips" interface is down";
+        expr $current > /var/www/html/web/teams/team0/points; 
+fi
+
+
+
+
+
