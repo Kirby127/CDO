@@ -19,7 +19,7 @@ else
 fi
 
 #SSH Sweep team1
-now1=$(sshpass -p "bb123#123" ssh -o StrictHostKeyChecking=no -o ConnectTimeout=2 bob@192.168.1.20 echo test)
+now1=$(sshpass -p "bb123#123" ssh -o StrictHostKeyChecking=no -o ConnectTimeout=2 bob@192.168.6.20 echo test)
 ifwork1=$?
 echo $ifwork1
 
