@@ -1,0 +1,11 @@
+#!/bin/bash
+
+for teams in {1,2,3,4,5};
+do
+	echo team$teams;
+#	cp points ../team$teams/
+#	cp -r pingup ../team$teams/
+#	cp -r sshup ../team$teams/
+#	cp -r webup ../team$teams/
+	cp -r dnsup ../team$teams/
+done

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for teams in {4,5};
+	sudo cp points ../team$teams/
+	sudo cp -r pingup ../team3$teams/
+	sudo cp -r sshup ../team3$teams/
+	sudo cp -r webup ../team3$teams/
+done

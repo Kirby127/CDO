@@ -1,0 +1,15 @@
+#!/bin/bash
+
+for num in {1,2,3,4,5}
+do
+	echo "" > team$num/points
+	echo "" > team$num/pingup/10
+	echo "" > team$num/pingup/20
+	echo "" > team$num/pingup/30
+	echo "" > team$num/pingup/40
+	echo "" > team$num/sshup/10
+	echo "" > team$num/webup/10 
+	echo "" > team$num/dnsup/40 
+
+done
+
