@@ -1,0 +1,18 @@
+#!/bin/bash
+
+while [ true ]
+do
+	echo START SERIVCE CHECKS
+	echo ""
+	./pingSweep
+	echo ""
+	./webContent
+	echo ""
+	./sshSweep
+	echo ""
+	./dnsSweep
+	echo ""
+	echo END SERVICE CHECKS
+	echo ""
+	sleep 1m
+done

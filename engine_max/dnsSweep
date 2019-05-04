@@ -1,0 +1,141 @@
+#!/bin/bash
+
+#Team 0 DNS Check
+test=$(nslookup -timeout=2 gboard.gddc.local 192.168.0.40)
+error=$?
+echo $error
+if [ $? -eq 0 ]
+then
+	current=$(nslookup gboard.gddc.local 192.168.0.40 | awk '/Address: / {print}')
+
+	if [ "$current"  == "Address: 192.168.0.10" ];
+	then
+		echo Team 0 DNS query work
+		echo Up > /var/www/html/teams/team0/dnsup/40
+		points=5
+		current=$(cat /var/www/html/teams/team0/points)
+		expr  $current + $points > /var/www/html/teams/team0/points
+	else
+		echo Query is wrong > /var/www/html/teams/team0/dnsup/40
+		echo Team 0 DNS query is wrong
+	fi
+else
+	echo Down > /var/www/html/teams/team0/dnsup/40
+	echo Team 0 DNS is down
+fi
+
+#Team 1 DNS Check 
+test=$(nslookup -timeout=2 gboard.gddc.local 192.168.1.40)
+error=$?
+if [ $error -eq 0 ]
+then
+        current=$(nslookup gboard.gddc.local 192.168.1.40 | awk '/Address: / {print}')
+
+        if [ "$current"  == "Address: 192.168.1.10" ];
+        then
+                echo Team 1 DNS query work
+                echo Up > /var/www/html/teams/team1/dnsup/40
+                points=5
+                current=$(cat /var/www/html/teams/team1/points)
+                expr  $current + $points > /var/www/html/teams/team1/points
+        else
+                echo Query is wrong > /var/www/html/teams/team1/dnsup/40
+                echo Team 1 DNS query is wrong
+        fi
+else
+        echo Down > /var/www/html/teams/team1/dnsup/40
+        echo Team 1 DNS is down
+fi
+
+#Team 2 DNS Check 
+test=$(nslookup -timeout=2 gboard.gddc.local 192.168.2.40)
+error=$?
+if [ $error -eq 0 ]
+then
+        current=$(nslookup gboard.gddc.local 192.168.2.40 | awk '/Address: / {print}')
+
+        if [ "$current"  == "Address: 192.168.2.10" ];
+        then
+                echo Team 2 DNS query work
+                echo Up > /var/www/html/teams/team2/dnsup/40
+                points=5
+                current=$(cat /var/www/html/teams/team2/points)
+                expr  $current + $points > /var/www/html/teams/team2/points
+        else
+                echo Query is wrong > /var/www/html/teams/team2/dnsup/40
+                echo Team 2 DNS query is wrong
+        fi
+else
+        echo Down > /var/www/html/teams/team2/dnsup/40
+        echo Team 2 DNS is down
+fi
+
+#Team 3 DNS Check 
+test=$(nslookup -timeout=2 gboard.gddc.local 192.168.3.40)
+error=$?
+if [ $error -eq 0 ]
+then
+        current=$(nslookup gboard.gddc.local 192.168.3.40 | awk '/Address: / {print}')
+
+        if [ "$current"  == "Address: 192.168.3.10" ];
+        then
+                echo Team 3 DNS query work
+                echo Up > /var/www/html/teams/team3/dnsup/40
+                points=5
+                current=$(cat /var/www/html/teams/team3/points)
+                expr  $current + $points > /var/www/html/teams/team3/points
+        else
+                echo Query is wrong > /var/www/html/teams/team3/dnsup/40
+                echo Team 3 DNS query is wrong
+        fi
+else
+        echo Down > /var/www/html/teams/team3/dnsup/40
+        echo Team 3 DNS is down
+fi
+
+#Team 4 DNS Check 
+test=$(nslookup -timeout=2 gboard.gddc.local 192.168.4.40)
+error=$?
+if [ $error -eq 0 ]
+then
+        current=$(nslookup gboard.gddc.local 192.168.4.40 | awk '/Address: / {print}')
+
+        if [ "$current"  == "Address: 192.168.4.10" ];
+        then
+                echo Team 4 DNS query work
+                echo Up > /var/www/html/teams/team4/dnsup/40
+                points=5
+                current=$(cat /var/www/html/teams/team4/points)
+                expr  $current + $points > /var/www/html/teams/team4/points
+        else
+                echo Query is wrong > /var/www/html/teams/team4/dnsup/40
+                echo Team 4 DNS query is wrong
+        fi
+else
+        echo Down > /var/www/html/teams/team4/dnsup/40
+        echo Team 4 DNS is down
+fi
+
+#Team 5 DNS Check 
+test=$(nslookup -timeout=2 gboard.gddc.local 192.168.5.40)
+error=$?
+if [ $error -eq 0 ]
+then
+        current=$(nslookup gboard.gddc.local 192.168.5.40 | awk '/Address: / {print}')
+
+        if [ "$current"  == "Address: 192.168.5.10" ];
+        then
+                echo Team 5 DNS query work
+                echo Up > /var/www/html/teams/team5/dnsup/40
+                points=5
+                current=$(cat /var/www/html/teams/team5/points)
+                expr  $current + $points > /var/www/html/teams/team5/points
+        else
+                echo Query is wrong > /var/www/html/teams/team5/dnsup/40
+                echo Team 5 DNS query is wrong
+        fi
+else
+        echo Down > /var/www/html/teams/team5/dnsup/40
+        echo Team 5 DNS is down
+fi
+

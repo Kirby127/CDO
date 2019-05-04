@@ -1,22 +1,133 @@
 #!/bin/bash
-#TEst
-#Web Sweep DMZ
+
+#Web Sweep team 0
+content=$(curl --max-time 2 192.168.0.10)
 if [ $? -eq 0 ]
 then
-        content=$(curl 127.0.0.1)
-        echo $content
-        if [ $content == "Test" ]
+        content=$(curl --max-time 2 192.168.0.10)
+        if [ $content == "Team0" ]
         then
-        echo Up > /var/www/html/web/teams/team0/webup/10;
-	points=5;
-        current=$(cat /var/www/html/web/teams/team0/points);
-        echo "Team "$ips" earned "$points" points";
-        expr $current + $points > /var/www/html/web/teams/team0/points
+        	echo "Up" > /var/www/html/teams/team0/webup/10;
+		points=5;
+        	current=$(cat /var/www/html/teams/team0/points);
+        	echo "Team 0 "$ips" earned "$points" points";
+        	expr $current + $points > /var/www/html/teams/team0/points
         else
-	echo Down > /var/www/html/web/teams/team0/webup/10;
-        echo Web is down
+		echo "Content is wrong" > /var/www/html/teams/team0/webup/10;
+        	echo Team 0 content is wrong
 	fi
 else
-	echo Error Code
+	echo "yeet" > /var/www/html/teams/team0/webup/10;
+	echo "Team 0 web is down"
+fi
+
+#Web Sweep team 1
+content=$(curl --max-time 2 192.168.1.10)
+if [ $? -eq 0 ]
+then
+        content=$(curl --max-time 2 192.168.1.10)
+        echo $content
+        if [ $content == "Team1" ]
+        then
+        echo "Up" > /var/www/html/teams/team1/webup/10;
+        points=5;
+        current=$(cat /var/www/html/teams/team1/points);
+        echo "Team 1 "$ips" earned "$points" points";
+        expr $current + $points > /var/www/html/teams/team1/points
+        else
+        echo "Content is wrong" > /var/www/html/teams/team1/webup/10;
+        echo Team 1 content is wrong
+        fi
+else
+        echo "Down" > /var/www/html/teams/team1/webup/10;
+	echo Team 1 Web is down
+fi
+
+#Web Sweep team 2
+content=$(curl --max-time 2 192.168.2.10)
+if [ $? -eq 0 ]
+then
+        content=$(curl --max-time 2 192.168.2.10)
+        echo $content
+        if [ $content == "Team2" ]
+        then
+        echo "Up" > /var/www/html/teams/team2/webup/10;
+        points=5;
+        current=$(cat /var/www/html/teams/team2/points);
+        echo "Team 2 "$ips" earned "$points" points";
+        expr $current + $points > /var/www/html/teams/team2/points
+        else
+        echo "Content is wrong" > /var/www/html/teams/team2/webup/10;
+        echo Team 2 Web is down
+        fi
+else
+        echo Down > /var/www/html/teams/team2/webup/10;
+        echo Team 2 web is down
+fi
+
+#Web Sweep team 3
+content=$(curl --max-time 2 192.168.3.10)
+if [ $? -eq 0 ]
+then
+        content=$(curl --max-time 2 192.168.3.10)
+        echo $content
+        if [ $content == "Team3" ]
+        then
+        echo "Up" > /var/www/html/teams/team3/webup/10;
+        points=5;
+        current=$(cat /var/www/html/teams/team3/points);
+        echo "Team 3 "$ips" earned "$points" points";
+        expr $current + $points > /var/www/html/teams/team3/points
+        else
+        echo "Content is wrong" > /var/www/html/teams/team3/webup/10;
+        echo Team 3 content is wrong
+        fi
+else
+        echo "Down" > /var/www/html/teams/team3/webup/10;
+        echo Team 3 web is down
+fi
+
+#Web Sweep team 4
+content=$(curl --max-time 2 192.168.4.10)
+if [ $? -eq 0 ]
+then
+        content=$(curl --max-time 2 192.168.4.10)
+        echo $content
+        if [ $content == "Team4" ]
+        then
+        echo "Up" > /var/www/html/teams/team4/webup/10;
+        points=5;
+        current=$(cat /var/www/html/teams/team4/points);
+        echo "Team 4 "$ips" earned "$points" points";
+        expr $current + $points > /var/www/html/teams/team4/points
+        else
+        echo "Content is wrong" > /var/www/html/teams/team4/webup/10;
+        echo Team 4 content is wrong
+        fi
+else
+        echo "Down" > /var/www/html/teams/team4/webup/10;
+        echo Team 4 web is down
+fi
+
+#Web Sweep team 5
+content=$(curl --max-time 2 192.168.5.10)
+if [ $? -eq 0 ]
+then
+        content=$(curl --max-time 2 192.168.5.10)
+        echo $content
+        if [ $content == "Team5" ]
+        then
+        echo "Up" > /var/www/html/teams/team5/webup/10;
+        points=5;
+        current=$(cat /var/www/html/teams/team5/points);
+        echo "Team 5 "$ips" earned "$points" points";
+        expr $current + $points > /var/www/html/teams/team5/points
+        else
+        echo "Content is wrong" > /var/www/html/teams/team5/webup/10;
+        echo Team 5 content is wrong
+        fi
+else
+        echo "Down" > /var/www/html/teams/team5/webup/10;
+        echo Team 5 web is down
 fi
 

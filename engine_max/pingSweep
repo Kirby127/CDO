@@ -1,18 +1,110 @@
 #!/bin/bash
-#Test
+
 #Ping Sweep team0
-for ips in {10,20,30,40}; do (ping 192.168.0.$ips -c 1 >/dev/null)
+for ips in {10,20,30,40}; do (ping -w 2 192.168.0.$ips -c 1 >/dev/null)
         if [ $? -eq 0 ]
         then
-		echo Up > /var/www/html/web/teams/team0/pingup/$ips;
+		echo Up > /var/www/html/teams/team0/pingup/$ips;
                 points=5;
-                current=$(cat /var/www/html/web/teams/team0/points);
-                echo "DMZ VM "$ips" earned "$points" points";
-                expr $current + $points > /var/www/html/web/teams/team0/points
+		current=$(cat /var/www/html/teams/team0/points);
+		echo "Team 0 "$ips" earned "$points" points";
+                expr $current + $points > /var/www/html/teams/team0/points
         else
-		echo Down > /var/www/html/web/teams/team0/pingup/$ips;
-                echo "DMZ VM "$ips" interface is down";
-                expr $current > /var/www/html/web/teams/team0/points;
+		echo Down > /var/www/html/teams/team0/pingup/$ips;
+                echo "Team 0 "$ips" interface is down";
+                #expr $current > /var/www/html/teams/team0/points;
         fi
 done
+
+echo ""
+
+#Ping Sweep team1
+for ips in {10,20,30,40}; do (ping -w 2 192.168.1.$ips -c 1 >/dev/null)
+        if [ $? -eq 0 ]
+        then
+                echo Up > /var/www/html/teams/team1/pingup/$ips;
+                points=5;
+                current=$(cat /var/www/html/teams/team1/points);
+                echo "Team 1 "$ips" earned "$points" points";
+                expr $current + $points > /var/www/html/teams/team1/points
+        else
+                echo Down > /var/www/html/teams/team1/pingup/$ips;
+                echo "Team 1 "$ips" interface is down";
+                #expr $current > /var/www/html/teams/team0/points;
+        fi
+done
+
+echo ""
+
+#Ping Sweep team2
+for ips in {10,20,30,40}; do (ping -w 2 192.168.2.$ips -c 1 >/dev/null)
+        if [ $? -eq 0 ]
+        then
+                echo Up > /var/www/html/teams/team2/pingup/$ips;
+                points=5;
+                current=$(cat /var/www/html/teams/team2/points);
+                echo "Team 2 "$ips" earned "$points" points";
+                expr $current + $points > /var/www/html/teams/team2/points
+        else
+                echo Down > /var/www/html/teams/team2/pingup/$ips;
+                echo "Team 2 "$ips" interface is down";
+                #expr $current > /var/www/html/teams/team0/points;
+        fi
+done
+
+echo ""
+
+#Ping Sweep team3
+for ips in {10,20,30,40}; do (ping -w 2 192.168.3.$ips -c 1 >/dev/null)
+        if [ $? -eq 0 ]
+        then
+                echo Up > /var/www/html/teams/team3/pingup/$ips;
+                points=5;
+                current=$(cat /var/www/html/teams/team3/points);
+                echo "Team 3 "$ips" earned "$points" points";
+                expr $current + $points > /var/www/html/teams/team3/points
+        else
+                echo Down > /var/www/html/teams/team3/pingup/$ips;
+                echo "Team 3 "$ips" interface is down";
+                #expr $current > /var/www/html/teams/team0/points;
+        fi
+done
+
+echo ""
+
+#Ping Sweep team4
+for ips in {10,20,30,40}; do (ping -w 2 192.168.4.$ips -c 1 >/dev/null)
+        if [ $? -eq 0 ]
+        then
+                echo Up > /var/www/html/teams/team4/pingup/$ips;
+                points=5;
+                current=$(cat /var/www/html/teams/team4/points);
+                echo "Team 4 "$ips" earned "$points" points";
+                expr $current + $points > /var/www/html/teams/team4/points
+        else
+                echo Down > /var/www/html/teams/team4/pingup/$ips;
+                echo "Team 4 "$ips" interface is down";
+                #expr $current > /var/www/html/teams/team0/points;
+        fi
+done
+
+echo ""
+
+#Ping Sweep team5
+for ips in {10,20,30,40}; do (ping -w 2 192.168.5.$ips -c 1 >/dev/null)
+        if [ $? -eq 0 ]
+        then
+                echo Up > /var/www/html/teams/team5/pingup/$ips;
+                points=5;
+                current=$(cat /var/www/html/teams/team5/points);
+                echo "Team 5 "$ips" earned "$points" points";
+                expr $current + $points > /var/www/html/teams/team5/points
+        else
+                echo Down > /var/www/html/teams/team5/pingup/$ips;
+                echo "Team 5 "$ips" interface is down";
+                #expr $current > /var/www/html/teams/team0/points;
+        fi
+done
+
+echo ""
 

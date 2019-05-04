@@ -1,24 +1,110 @@
 #!/bin/bash
-#test
-#SSH Sweep
-now=$(sshpass -p "bb123#123" ssh -o StrictHostKeyChecking=no bob@localhost echo test)
-ifwork=$?
-echo $ifwork
 
-if [ $ifwork -eq "0" ]
+#SSH Sweep Team0
+now0=$(sshpass -p "bb123#123" ssh -o StrictHostKeyChecking=no -o ConnectTimeout=2 bob@192.168.0.20 echo test)
+ifwork0=$?
+echo $ifwork0
+
+if [ $ifwork0 -eq "0" ]
 then
-        echo Up > /var/www/html/web/teams/team0/sshup/10;
+        echo Up > /var/www/html/teams/team0/sshup/10;
         points=5;
-        current=$(cat /var/www/html/web/teams/team0/points);
-        echo "DMZ VM "$ips" earned "$points" points";
-        expr $current + $points > /var/www/html/web/teams/team0/points
+        current=$(cat /var/www/html/teams/team0/points);
+        echo "Team0 ssh "$ips" earned "$points" points";
+        expr $current + $points > /var/www/html/teams/team0/points
 else
-        echo Down > /var/www/html/web/teams/team0/sshup/10;
-        echo "DMZ VM "$ips" interface is down";
-        expr $current > /var/www/html/web/teams/team0/points; 
+        echo Down > /var/www/html/teams/team0/sshup/10;
+        echo "Team0 ssh"$ips" interface is down";
+        #expr $current > /var/www/html/teams/team0/points; 
 fi
 
+#SSH Sweep team1
+now1=$(sshpass -p "bb123#123" ssh -o StrictHostKeyChecking=no -o ConnectTimeout=2 bob@192.168.1.20 echo test)
+ifwork1=$?
+echo $ifwork1
 
+if [ $ifwork1 -eq "0" ]
+then
+        echo Up > /var/www/html/teams/team1/sshup/10;
+        points=5;
+        current=$(cat /var/www/html/teams/team1/points);
+        echo "Team1 ssh "$ips" earned "$points" points";
+        expr $current + $points > /var/www/html/teams/team1/points
+else
+        echo Down > /var/www/html/teams/team1/sshup/10;
+        echo "Team1 ssh "$ips" interface is down";
+        #expr $current > /var/www/html/teams/team0/points; 
+fi
 
+#SSH Sweep Team2
+now2=$(sshpass -p "bb123#123" ssh -o StrictHostKeyChecking=no -o ConnectTimeout=2 bob@192.168.2.20 echo test)
+ifwork2=$?
+echo $ifwork2
 
+if [ $ifwork2 -eq "0" ]
+then
+        echo Up > /var/www/html/teams/team2/sshup/10;
+        points=5;
+        current=$(cat /var/www/html/teams/team2/points);
+        echo "Team 2 ssh "$ips" earned "$points" points";
+        expr $current + $points > /var/www/html/teams/team2/points
+else
+        echo Down > /var/www/html/teams/team2/sshup/10;
+        echo "Team 2 ssh"$ips" interface is down";
+        #expr $current > /var/www/html/teams/team0/points; 
+fi
+
+#SSH Sweep Team3
+now3=$(sshpass -p "bb123#123" ssh -o StrictHostKeyChecking=no -o ConnectTimeout=2 bob@192.168.3.20 echo test)
+ifwork3=$?
+echo $ifwork3
+
+if [ $ifwork3 -eq "0" ]
+then
+        echo Up > /var/www/html/teams/team3/sshup/10;
+        points=5;
+        current=$(cat /var/www/html/teams/team3/points);
+        echo "Team 3 ssh "$ips" earned "$points" points";
+        expr $current + $points > /var/www/html/teams/team3/points
+else
+        echo Down > /var/www/html/teams/team3/sshup/10;
+        echo "Team 3 ssh"$ips" interface is down";
+        #expr $current > /var/www/html/teams/team0/points; 
+fi
+
+#SSH Sweep Team4
+now4=$(sshpass -p "bb123#123" ssh -o StrictHostKeyChecking=no -o ConnectTimeout=2 bob@192.168.4.20 echo test)
+ifwork4=$?
+echo $ifwork4
+
+if [ $ifwork4 -eq "0" ]
+then
+        echo Up > /var/www/html/teams/team4/sshup/10;
+        points=5;
+        current=$(cat /var/www/html/teams/team4/points);
+        echo "Team 4 ssh "$ips" earned "$points" points";
+        expr $current + $points > /var/www/html/teams/team4/points
+else
+        echo Down > /var/www/html/teams/team4/sshup/10;
+        echo "Team 4 ssh"$ips" interface is down";
+        #expr $current > /var/www/html/teams/team0/points; 
+fi
+
+#SSH Sweep Team5
+now5=$(sshpass -p "bb123#123" ssh -o StrictHostKeyChecking=no -o ConnectTimeout=2 bob@192.168.5.20 echo test)
+ifwork5=$?
+echo $ifwork5
+
+if [ $ifwork5 -eq "0" ]
+then
+        echo Up > /var/www/html/teams/team5/sshup/10;
+        points=5;
+        current=$(cat /var/www/html/teams/team5/points);
+        echo "Team 5 ssh "$ips" earned "$points" points";
+        expr $current + $points > /var/www/html/teams/team5/points
+else
+        echo Down > /var/www/html/teams/team5/sshup/10;
+        echo "Team 5 ssh"$ips" interface is down";
+        #expr $current > /var/www/html/teams/team0/points; 
+fi
 
